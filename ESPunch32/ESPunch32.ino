@@ -92,6 +92,5 @@ void loop()
         }
     }
 
-    //desi mare parte din datele utile sunt furmizate prin serial
     delay(10);
 }
