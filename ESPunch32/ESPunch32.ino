@@ -79,7 +79,7 @@ void loop()
             //resetare valori, auto
              if(ca!=(button & BUTTON_C)){Serial.print(" c "); maxx=0; maxy=0; maxz=0; naxx=0; naxy=0; naxz=0;}
              
-            if(ca!=(button & BUTTON_HOME)){Serial.print(" home ");csound();touchAttachInterrupt(4, callback, 20);esp_sleep_enable_touchpad_wakeup();esp_deep_sleep_start();}
+            if(ca!=(button & BUTTON_HOME)){Serial.print(" home ");csound();touchAttachInterrupt(5, callback, 20);esp_sleep_enable_touchpad_wakeup();esp_deep_sleep_start();}
             //inchidere rapida
             if(abs(accel.xAxis)>maxx){maxx=abs(accel.xAxis); Serial.printf(", wiimote.axis: %3d/%3d/%3d", maxx, maxy, maxz);}
             if(abs(accel.yAxis)>maxy){maxy=abs(accel.yAxis); Serial.printf(", wiimote.axis: %3d/%3d/%3d", maxx, maxy, maxz); }
@@ -92,16 +92,6 @@ void loop()
         }
     }
 
-    /*if (! logging)
-    {
-        long ms = millis();
-        if (ms - last_ms >= 1000)
-        {
-            Serial.printf("Run %d times per second with %d updates\n", num_run, num_updates);
-            num_run = num_updates = 0;
-            last_ms += 1000;
-        }
-    }
-*/
+    //desi mare parte din datele utile sunt furmizate prin serial
     delay(10);
 }
